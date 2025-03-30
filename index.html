@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset='utf-8'>
+  <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+  <title>insert</title>
+  <meta name='viewport' content='width=device-width, initial-scale=1'>
+  <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+  <script src='main.js'></script>
+</head>
+<body>
+<div class="formbold-main-wrapper">
+    <div class="formbold-form-wrapper">
+      <form action="main.php" method="POST">
+          <div class="formbold-input-flex">
+            <div>
+                <label for="firstname" class="formbold-form-label"> travail du jour </label>
+                <input
+                type="number"
+                name="TDJ"
+                id="TDJ"
+                class="formbold-form-input"
+                />
+                <p style = "color : red ;" id = "er1"></p>
+            </div>
+            <div>
+                <label for="lastname" class="formbold-form-label"> sel3a </label>
+                <input
+                type="number"
+                name="S"
+                id="S"
+                class="formbold-form-input"
+                />
+                <p style = "color : red ;" id = "er2"></p>
+            </div>
+          </div>
+  
+          <div class="formbold-input-flex">
+            <div>
+                <label for="email" class="formbold-form-label"> mazout </label>
+                <input
+                type="number"
+                name="m"
+                id="m"
+                
+                class="formbold-form-input"
+                />
+                <p style = "color : red ;" id = "er3"></p>
+            </div>
+            <div>
+                <label  class="formbold-form-label"> taslih </label>
+                <input
+                type="number"
+                name="T"
+                id="T"
+                class="formbold-form-input"
+                />
+                <p style = "color : red ;" id = "er4"></p>
+            </div>
+            <br>
+          </div>
+          <div class="formbold-input-flex">
+            <div class="salaire">
+                <label class="formbold-form-label"> salaire du chouffeur  </label>
+                <input
+                type="number"
+                name="SDC"
+                id="SDC"
+                
+                class="formbold-form-input"
+                />
+                <p style = "color : red ;" id = "er5"></p>
+            </div>
+            <div class="salaire">
+              <label  class="formbold-form-label"> date  </label>
+              <input
+              type="date"
+              name="date"
+              id="date"
+              class="formbold-form-input"
+              />
+              <p style = "color : red ;" id = "er6"></p>
+          </div>
+          </div>
+  
+          <div class="formbold-input-radio-wrapper">
+              <label for="jobtitle" class="formbold-form-label"> which vehicle  </label>
+
+              <select name="SLT" id="SLT" class="formbold-form-input">
+                <option value="">i5tar vehicle </option>
+                <option value="GCB">GCB</option>
+                <option value="CATS">CATS</option>
+                <option value="SEMU">SEMU</option>
+              </select>
+              <p style = "color : red ;" id = "er7"></p>
+          </div>
+  
+          <div>
+              <label class="formbold-form-label"> autre </label>
+              <textarea
+                  rows="6"
+                  name="autre"
+                  id="autre"
+                  class="formbold-form-input"
+              ></textarea>
+              <h3 id="mrgl" style="color : green; text-align: center;"></h3>
+          </div>
+          <button class="formbold-btn" onclick="return verif()">
+              done
+          </button>
+          <br>
+          <br>
+          <a href="show/index.php">show</a>
+      </form>
+    </div>
+  </div>
+  </body>
+  </html>

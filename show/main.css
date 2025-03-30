@@ -1,0 +1,21 @@
+select{
+    width: 500px;
+    height: 50px;
+    border-radius: 7px;
+    background-color: #4780b8;
+    border: none;
+    position: relative;
+    top: 400px;
+}
+body{
+    background-color: #114477;
+}
+button{
+    position: absolute;
+    top: 500px;
+    right: 430px;
+    width: 100px;
+    height: 30px;
+    background-color: gold;
+    border: none;
+}
