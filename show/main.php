@@ -1,7 +1,36 @@
 <?php
-extract($_POST);
-$cnx = mysqli_connect("localhost" , "root" , "" , "chayma");
-$res = mysqli_query($cnx,"SELECT * from jour where date like '$m%';");
+$LOGIN_URL = '../login.php';
+require_once '../auth.php';
+require_once '../db.php';
+
+$cnx = db_connect();
+
+$m = '';
+if (isset($_POST['m'])) {
+    $m = $_POST['m'];
+} elseif (isset($_GET['m'])) {
+    $m = $_GET['m'];
+}
+
+$m = trim($m);
+if ($m === '') {
+    header('Location: index.php');
+    exit;
+}
+
+$mLike = $m . '%';
+$stmt = mysqli_prepare($cnx, "SELECT * FROM jour WHERE date LIKE ?");
+if ($stmt) {
+    mysqli_stmt_bind_param($stmt, 's', $mLike);
+    mysqli_stmt_execute($stmt);
+    $res = mysqli_stmt_get_result($stmt);
+    mysqli_stmt_close($stmt);
+}
+
+if (!isset($res) || $res === false) {
+    $mLikeSafe = mysqli_real_escape_string($cnx, $mLike);
+    $res = mysqli_query($cnx, "SELECT * FROM jour WHERE date LIKE '$mLikeSafe'");
+}
 ?>
 <!DOCTYPE html>
 <html>
@@ -19,8 +48,9 @@ $res = mysqli_query($cnx,"SELECT * from jour where date like '$m%';");
     <header class="app-header">
       <div class="app-title">Daily Work</div>
       <nav class="app-nav">
-        <a class="app-link" href="../index.html">New entry</a>
+        <a class="app-link" href="../index.php">New entry</a>
         <a class="app-link" href="index.php">Change month</a>
+        <a class="app-link" href="../logout.php">Logout</a>
       </nav>
     </header>
 
@@ -28,7 +58,7 @@ $res = mysqli_query($cnx,"SELECT * from jour where date like '$m%';");
       <div class="results-head">
         <div>
           <div class="page-title">Results</div>
-          <div class="page-subtitle">Month: <?php echo $m; ?></div>
+          <div class="page-subtitle">Month: <?php echo htmlspecialchars($m); ?></div>
         </div>
         <button class="formbold-btn results-btn" id="convertToPdf" type="button">Convertir la page en PDF</button>
       </div>

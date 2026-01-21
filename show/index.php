@@ -1,12 +1,10 @@
 <?php 
-session_start();
-$cnx = mysqli_connect("localhost" , "root" , "" , "chayma");
+$LOGIN_URL = '../login.php';
+require_once '../auth.php';
+require_once '../db.php';
+
+$cnx = db_connect();
 $res = mysqli_query($cnx , "SELECT DISTINCT date from jour");
-/*$date = date('2024-01-01');
-// Extract day, month, and year
-$day = date('d', strtotime($date));
-$month = date('m', strtotime($date));
-$year = date('Y', strtotime($date));*/
 ?>
 <!DOCTYPE html>
 <html>
@@ -23,7 +21,8 @@ $year = date('Y', strtotime($date));*/
       <header class="app-header">
         <div class="app-title">Daily Work</div>
         <nav class="app-nav">
-          <a class="app-link" href="../index.html">New entry</a>
+          <a class="app-link" href="../index.php">New entry</a>
+          <a class="app-link" href="../logout.php">Logout</a>
         </nav>
       </header>
 

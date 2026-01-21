@@ -1,3 +1,7 @@
+<?php
+$LOGIN_URL = 'login.php';
+require_once 'auth.php';
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -14,6 +18,7 @@
     <div class="app-title">Daily Work</div>
     <nav class="app-nav">
       <a class="app-link" href="show/index.php">Show</a>
+      <a class="app-link" href="logout.php">Logout</a>
     </nav>
   </header>
   <div class="formbold-main-wrapper">

@@ -1,8 +1,19 @@
 <?php
-$cnx = mysqli_connect("localhost" , "root" , "" , "chayma");
+$LOGIN_URL = 'login.php';
+require_once 'auth.php';
+require_once 'db.php';
+
 extract($_POST);
-$res = mysqli_query($cnx,"INSERT into jour(TDJ,S,m,T,SDC,date,SLT,autre) values('$TDJ','$S','$m','$T','$SDC','$date','$SLT','$autre')");
-sleep(3);
-header("Refresh:0; url=index.html");
+$cnx = db_connect();
+
+$stmt = mysqli_prepare($cnx, "INSERT INTO jour(TDJ,S,m,T,SDC,date,SLT,autre) VALUES(?,?,?,?,?,?,?,?)");
+if ($stmt) {
+    mysqli_stmt_bind_param($stmt, 'ssssssss', $TDJ, $S, $m, $T, $SDC, $date, $SLT, $autre);
+    mysqli_stmt_execute($stmt);
+    mysqli_stmt_close($stmt);
+}
+
 mysqli_close($cnx);
+header("Location: index.php");
+exit;
 ?>

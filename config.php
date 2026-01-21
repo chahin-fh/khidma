@@ -1,0 +1,4 @@
+<?php
+$SINGLE_USER_USERNAME = 'chayma';
+$SINGLE_USER_PASSWORD = 'chayma11222005';
+?>
