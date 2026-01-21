@@ -6,19 +6,83 @@
 }
 body {
   font-family: "Inter", sans-serif;
+  background: radial-gradient(1200px 600px at 10% 10%, #eef2ff 0%, rgba(238, 242, 255, 0) 55%),
+    radial-gradient(900px 500px at 90% 20%, #ecfeff 0%, rgba(236, 254, 255, 0) 60%),
+    linear-gradient(180deg, #f8fafc 0%, #ffffff 100%);
+  min-height: 100vh;
+  color: #0f172a;
 }
+
+.app-shell {
+  min-height: 100vh;
+}
+
+.app-header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(15, 23, 42, 0.08);
+  padding: 14px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.app-title {
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  font-size: 18px;
+}
+
+.app-nav {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.app-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 14px;
+  border-radius: 10px;
+  border: 1px solid rgba(15, 23, 42, 0.1);
+  color: #0f172a;
+  text-decoration: none;
+  font-weight: 600;
+  background: rgba(255, 255, 255, 0.8);
+  transition: transform 120ms ease, box-shadow 120ms ease, background 120ms ease;
+}
+
+.app-link:hover {
+  transform: translateY(-1px);
+  box-shadow: 0px 8px 20px rgba(2, 6, 23, 0.08);
+  background: #ffffff;
+}
+
+.app-link:focus-visible {
+  outline: 3px solid rgba(99, 102, 241, 0.35);
+  outline-offset: 2px;
+}
+
 .formbold-main-wrapper {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 48px;
+  padding: 36px 16px 64px;
 }
 
 .formbold-form-wrapper {
   margin: 0 auto;
-  max-width: 550px;
+  max-width: 760px;
   width: 100%;
-  background: white;
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  border-radius: 16px;
+  padding: 22px;
+  box-shadow: 0px 16px 40px rgba(2, 6, 23, 0.08);
 }
 
 .formbold-input-flex {
@@ -26,6 +90,7 @@ body {
   gap: 20px;
   margin-bottom: 15px;
 }
+
 .formbold-input-flex > div {
   width: 50%;
 }
@@ -33,28 +98,13 @@ body {
 .formbold-input-radio-wrapper {
   margin-bottom: 28px;
 }
-.formbold-radio-flex {
-  display: flex;
-  align-items: center;
-  gap: 15px;
-}
-.formbold-radio-label {
-  font-size: 14px;
-  line-height: 24px;
-  color: #07074D;
-  position: relative;
-  padding-left: 25px;
-  cursor: pointer;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-}
+
 .formbold-input-radio {
   position: absolute;
   opacity: 0;
   cursor: pointer;
 }
+
 .formbold-radio-checkmark {
   position: absolute;
   top: -1px;
@@ -65,9 +115,11 @@ body {
   border: 1px solid #DDE3EC;
   border-radius: 50%;
 }
+
 .formbold-radio-label .formbold-input-radio:checked ~ .formbold-radio-checkmark {
   background-color: #6A64F1;
 }
+
 .formbold-radio-checkmark:after {
   content: "";
   position: absolute;
@@ -91,22 +143,26 @@ body {
 .formbold-form-input {
   width: 100%;
   padding: 13px 22px;
-  border-radius: 5px;
-  border: 1px solid #DDE3EC;
-  background: #FFFFFF;
+  border-radius: 12px;
+  border: 1px solid rgba(15, 23, 42, 0.12);
+  background: rgba(255, 255, 255, 0.9);
   font-weight: 500;
   font-size: 16px;
   color: #07074D;
   outline: none;
   resize: none;
+  transition: box-shadow 120ms ease, border-color 120ms ease, transform 120ms ease;
 }
+
 .formbold-form-input::placeholder {
   color: #536387;
 }
+
 .formbold-form-input:focus {
-  border-color: #6a64f1;
-  box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.05);
+  border-color: rgba(99, 102, 241, 0.75);
+  box-shadow: 0px 10px 24px rgba(99, 102, 241, 0.18);
 }
+
 .formbold-form-label {
   color: #07074D;
   font-size: 14px;
@@ -119,24 +175,28 @@ body {
   text-align: center;
   width: 100%;
   font-size: 16px;
-  border-radius: 5px;
+  border-radius: 12px;
   padding: 14px 25px;
   border: none;
-  font-weight: 500;
-  background-color: #6A64F1;
+  font-weight: 600;
+  background: linear-gradient(135deg, #6A64F1 0%, #4F46E5 100%);
   color: white;
   cursor: pointer;
   margin-top: 25px;
+  transition: transform 120ms ease, box-shadow 120ms ease, filter 120ms ease;
 }
+
 .formbold-btn:hover {
-  box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.05);
+  transform: translateY(-1px);
+  box-shadow: 0px 14px 30px rgba(79, 70, 229, 0.25);
 }
-a{
-    text-decoration: none;
-    color: white;
-    position: relative;
-    left: 43.5%;
-    font-size: 30px;
-    background-color:   #34495e ;
-    border-radius: 10px;
+
+@media (max-width: 640px) {
+  .formbold-input-flex {
+    flex-direction: column;
+  }
+
+  .formbold-input-flex > div {
+    width: 100%;
+  }
 }

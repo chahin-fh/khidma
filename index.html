@@ -9,9 +9,16 @@
   <script src='main.js'></script>
 </head>
 <body>
-<div class="formbold-main-wrapper">
+<div class="app-shell">
+  <header class="app-header">
+    <div class="app-title">Daily Work</div>
+    <nav class="app-nav">
+      <a class="app-link" href="show/index.php">Show</a>
+    </nav>
+  </header>
+  <div class="formbold-main-wrapper">
     <div class="formbold-form-wrapper">
-      <form action="main.php" method="POST">
+      <form action="main.php" method="POST" onsubmit="return verif()">
           <div class="formbold-input-flex">
             <div>
                 <label for="firstname" class="formbold-form-label"> travail du jour </label>
@@ -105,14 +112,12 @@
               ></textarea>
               <h3 id="mrgl" style="color : green; text-align: center;"></h3>
           </div>
-          <button class="formbold-btn" onclick="return verif()">
+          <button class="formbold-btn" type="submit">
               done
           </button>
-          <br>
-          <br>
-          <a href="show/index.php">show</a>
       </form>
     </div>
   </div>
+ </div>
   </body>
   </html>
